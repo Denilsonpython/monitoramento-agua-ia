@@ -1,3 +1,14 @@
+## 🛠️ Modelagem de Inteligência Artificial e Algoritmos
+O sistema utiliza uma abordagem híbrida de Machine Learning para garantir a confiabilidade dos dados coletados em campo:
+* **Detecção de Falhas e Anomalias (Passo 2):** Implementação do algoritmo **Isolation Forest** (`scikit-learn`) focado em identificar anomalias físicas nos sensores (leituras corrompidas, picos impossíveis ou falhas de hardware).
+* **Classificação de Qualidade (Passo 3):** Algoritmo **Random Forest Classifier** treinado para segmentar as condições da água a partir dos recursos preditivos analisados.
+* **Métricas Analisadas em Tempo Real (Passo 4):** Processamento matemático instantâneo das variáveis de **pH**, **Temperatura** e **Turbidez**.
+
+## 🚀 Pipeline de Decisão Automatizado
+A função principal `analisar_leitura(ph, temp, turb)` executa o seguinte fluxo lógico:
+1. **Verificação de Integridade:** O modelo de anomalia testa o dado bruto. Se for detectado erro de leitura, emite alerta imediato: `CRITICO: Sensor quebrado ou leitura impossível!`.
+2. **Análise de Conformidade:** Caso o dado seja íntegro, o classificador valida os parâmetros de qualidade hídrica.
+3. **Despacho de Alerta:** Emite status de `SUCESSO` para água em conformidade ou `ATENCAO` caso os efluentes estejam fora dos padrões ambientais exigidos.
 # 🌊 Monitoramento de Efluentes e Previsão de Enchentes com IA e IoT
 
 ## 📝 Descrição do Projeto
@@ -30,4 +41,3 @@ git clone https://github.com
 pip install ultralytics opencv-python jupyter
 ```
 3. Execute o notebook `LinhaAgua.ipynb` para conferir a modelagem ou o script `meu_projeto.py` para iniciar o sistema produtivo de alertas.
-
